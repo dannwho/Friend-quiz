@@ -1,0 +1,14 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Daniyal's Friendship Quiz</title>
+<style>
+body{font-family:Arial;margin:0;background:linear-gradient(135deg,#6c63ff,#ff8fab);display:flex;justify-content:center;align-items:center;min-height:100vh}
+.card{background:#fff;padding:24px;border-radius:18px;max-width:520px;width:92%;text-align:center}
+input,button{width:100%;padding:12px;margin:8px 0;border-radius:10px}button{border:0;background:#6c63ff;color:#fff}
+</style></head><body><div class="card"><div id=s1><h1>💜 Daniyal's Friendship Quiz 💜</h1><p>Enter your name first!</p><input id=name placeholder="Your name"><button onclick="start()">Start</button></div><div id=s2 style="display:none"></div></div>
+<script>
+const q=[["How good of a friend is Daniyal?",["1","2","3","4","5","6","7","8","9","10 👑"],9],["Who's the funniest?",["Someone else","Daniyal 😎"],1],["If Daniyal texts at 2AM?",["Ignore","Reply 😂"],1]];
+let i=0,sc=0,n="";
+function start(){n=name.value.trim();if(!n){alert("Please enter your name!");return;}s1.style.display="none";s2.style.display="block";draw();}
+function draw(){if(i>=q.length){s2.innerHTML="<h2>🎉 Thanks, "+n+"!</h2><p>You finished <b>Daniyal's Friendship Quiz</b>.</p><h3>Score: "+sc+"/"+q.length+"</h3><p>According to this totally unbiased quiz, Daniyal is an amazing friend! 😂❤️</p>";return;}let h="<h2>"+q[i][0]+"</h2>";q[i][1].forEach((o,x)=>h+=`<button onclick='ans(${x})'>${o}</button>`);s2.innerHTML=h;}
+function ans(x){if(x==q[i][2])sc++;i++;draw();}
+</script></body></html>
